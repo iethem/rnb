@@ -24,7 +24,11 @@ export function LocaleToggle(props) {
         onValueChange={itemValue => props.onLocaleToggle(itemValue)}
       >
         {appLocales.map(locale => (
-          <Picker.Item label={messages[locale].defaultMessage} value={locale} />
+          <Picker.Item
+            key={locale}
+            label={messages[locale].defaultMessage}
+            value={locale}
+          />
         ))}
       </Picker>
     </View>
