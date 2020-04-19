@@ -5,6 +5,8 @@
  * code.
  */
 
+import 'react-native-gesture-handler';
+
 // Needed for redux-saga es6 generator support
 import '@babel/polyfill';
 
@@ -38,4 +40,3 @@ const render = () => (
 );
 
 export default render;
-
