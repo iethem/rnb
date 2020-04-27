@@ -13,4 +13,8 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'This is the DetailsScreen container!',
   },
+  title: {
+    id: `${scope}.title`,
+    defaultMessage: 'Details',
+  },
 });

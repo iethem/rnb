@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import { isEmpty, isFunction, isString } from 'lodash';
+import { isEmpty, isFunction, isString, has } from 'lodash';
 
 import checkStore from './checkStore';
 import createReducer from '../reducers';
@@ -15,7 +15,7 @@ export function injectReducerFactory(store, isValid) {
 
     // Check `store.injectedReducers[key] === reducer` for hot reloading when a key is the same but a reducer is different
     if (
-      Reflect.has(store.injectedReducers, key) &&
+      has(store.injectedReducers, key) &&
       store.injectedReducers[key] === reducer
     )
       return;

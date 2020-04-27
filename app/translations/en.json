@@ -1,5 +1,7 @@
 {
   "app.containers.DetailsScreen.header": "This is the DetailsScreen container!",
+  "app.containers.DetailsScreen.title": "Details",
+  "app.containers.HomeScreen.chooseLanguage": "Choose Language",
   "app.containers.HomeScreen.header": "This is the HomeScreen container!",
   "app.containers.HomeScreen.title": "Home",
   "app.containers.LocaleToggle.en": "en",

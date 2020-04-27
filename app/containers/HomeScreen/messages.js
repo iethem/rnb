@@ -17,4 +17,8 @@ export default defineMessages({
     id: `${scope}.title`,
     defaultMessage: 'Home',
   },
+  chooseLanguage: {
+    id: `${scope}.chooseLanguage`,
+    defaultMessage: 'Choose Language',
+  },
 });

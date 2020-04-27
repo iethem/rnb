@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import { isEmpty, isFunction, isString, conformsTo } from 'lodash';
+import { isEmpty, isFunction, isString, conformsTo, has } from 'lodash';
 
 import checkStore from './checkStore';
 import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from './constants';
@@ -36,7 +36,7 @@ export function injectSagaFactory(store, isValid) {
     checkKey(key);
     checkDescriptor(newDescriptor);
 
-    let hasSaga = Reflect.has(store.injectedSagas, key);
+    let hasSaga = has(store.injectedSagas, key);
 
     if (process.env.NODE_ENV !== 'production') {
       const oldDescriptor = store.injectedSagas[key];
@@ -67,7 +67,7 @@ export function ejectSagaFactory(store, isValid) {
 
     checkKey(key);
 
-    if (Reflect.has(store.injectedSagas, key)) {
+    if (has(store.injectedSagas, key)) {
       const descriptor = store.injectedSagas[key];
       if (descriptor.mode && descriptor.mode !== DAEMON) {
         descriptor.task.cancel();
