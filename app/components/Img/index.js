@@ -1,6 +1,6 @@
 /**
  *
- * Img
+ * Img (example)
  *
  */
 

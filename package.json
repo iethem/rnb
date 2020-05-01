@@ -24,7 +24,6 @@
     "invariant": "^2.2.4",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
-    "react-immutable": "^0.1.3",
     "react-intl": "2.8.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",

@@ -5,14 +5,14 @@
  */
 
 import React, { memo, useLayoutEffect } from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+import Button from 'components/Button';
 import Img from 'components/Img';
 import makeSelectHomeScreen from 'containers/HomeScreen/selectors';
 
@@ -47,9 +47,24 @@ export function DetailsScreen(props) {
           <FormattedMessage {...messages.header} />
         </Text>
         <Text style={styles.sectionDescription}>
-          Edit <Text style={styles.highlight}>DetailsScreen</Text> to change
-          this screen and then come back to see your edits.
+          <FormattedMessage
+            {...messages.editContainer}
+            values={{
+              container: (
+                <Text style={styles.highlight}>
+                  containers/DetailsScreen/index.js
+                </Text>
+              ),
+            }}
+          />
         </Text>
+      </View>
+      <View style={styles.sectionContainer}>
+        <Button onPress={() => navigation.navigate('Repos')}>
+          <Text style={styles.buttonText}>
+            <FormattedMessage {...messages.repositories} />
+          </Text>
+        </Button>
       </View>
     </SafeAreaView>
   );
@@ -58,6 +73,32 @@ export function DetailsScreen(props) {
 DetailsScreen.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#000',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: '#444',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+  buttonText: {
+    fontSize: 16,
+    textTransform: 'uppercase',
+    color: '#FFFFFF',
+  },
+});
 
 const mapStateToProps = createStructuredSelector({
   detailsScreen: makeSelectDetailsScreen(),
@@ -73,24 +114,3 @@ function mapDispatchToProps(dispatch) {
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(withConnect, memo)(DetailsScreen);
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});

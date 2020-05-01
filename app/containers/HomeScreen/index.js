@@ -5,22 +5,8 @@
  */
 
 import React, { memo } from 'react';
-import {
-  Button,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, ScrollView, View, Text } from 'react-native';
+import openURLInBrowser from 'react-native/Libraries/Core/Devtools/openURLInBrowser';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -28,13 +14,18 @@ import { compose } from 'redux';
 import { FormattedMessage } from 'react-intl';
 
 import LocaleToggle from 'containers/LocaleToggle';
+import Button from 'components/Button';
+import Header from 'components/Header';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectHomeScreen from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import styles from './styles';
 import messages from './messages';
+
+const docs = 'https://github.com/iethem/react-native-boilerplate';
 
 export function HomeScreen({ navigation }) {
   useInjectReducer({ key: 'homeScreen', reducer });
@@ -54,58 +45,46 @@ export function HomeScreen({ navigation }) {
         )}
         <View style={styles.body}>
           <View style={styles.container}>
-            <Button
-              title="Go to Details"
-              onPress={() => navigation.navigate('Details')}
-            />
+            <Button onPress={() => navigation.navigate('Details')}>
+              <Text style={styles.buttonText}>
+                <FormattedMessage {...messages.detailsButton} />
+              </Text>
+            </Button>
 
-            <TouchableOpacity
-              accessibilityRole="button"
-              // onPress={() => openURLInBrowser(link)}
-              style={styles.linkContainer}
-            >
-              <View style={styles.link}>
+            <View style={styles.linkContainer}>
+              <View style={styles.localeToggle}>
                 <LocaleToggle />
               </View>
-              <Text style={styles.description}><FormattedMessage {...messages.chooseLanguage} /></Text>
-            </TouchableOpacity>
+              <Text style={styles.description}>
+                <FormattedMessage {...messages.chooseLanguage} />
+              </Text>
+            </View>
 
             <View style={styles.separator} />
+            <Button
+              accessibilityRole="button"
+              onPress={() => openURLInBrowser(docs)}
+              style={styles.linkContainer}
+            >
+              <Text style={{ ...styles.description, color: '#1292B4' }}>
+                <FormattedMessage {...messages.learnMore} />
+              </Text>
+            </Button>
           </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Step One</Text>
-            <Text style={styles.sectionDescription}>
-              Edit <Text style={styles.highlight}>App.js</Text> to change this
-              screen and then come back to see your edits.
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>See Your Changes</Text>
-            <Text style={styles.sectionDescription}>
-              <ReloadInstructions />
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Debug</Text>
-            <Text style={styles.sectionDescription}>
-              <DebugInstructions />
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Learn More</Text>
-            <Text style={styles.sectionDescription}>
-              Read the docs to discover what to do next:
-            </Text>
-          </View>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionDescription}>
+          <FormattedMessage {...messages.header} />
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
 
 HomeScreen.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  navigation: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -120,88 +99,4 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withCompose = compose(withConnect, memo)(HomeScreen);
-
-withCompose.navigationOptions = {
-  headerTitle: () => (
-    <Text>
-      <FormattedMessage {...messages.title} />
-    </Text>
-  ),
-  headerStyle: {
-    backgroundColor: '#f4511e',
-  },
-  headerTintColor: '#ff4f',
-  headerTitleStyle: {
-    fontWeight: 'bold',
-  },
-};
-
-export default withCompose;
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  linkContainer: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 8,
-  },
-  link: {
-    flex: 2,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.primary,
-  },
-  description: {
-    flex: 3,
-    paddingVertical: 16,
-    fontWeight: '400',
-    fontSize: 18,
-    color: Colors.dark,
-  },
-  separator: {
-    backgroundColor: Colors.light,
-    height: 1,
-  },
-});
+export default compose(withConnect, memo)(HomeScreen);
