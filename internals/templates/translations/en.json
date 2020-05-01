@@ -1,0 +1,17 @@
+{
+  "app.components.Header.welcome": "Welcome to react-native-boilerplate",
+  "app.containers.DetailsScreen.editContainer": "Edit {container} to change this screen and then come back to see your edits.",
+  "app.containers.DetailsScreen.header": "This is the DetailsScreen container!",
+  "app.containers.DetailsScreen.repositories": "Github Repositories",
+  "app.containers.DetailsScreen.title": "Details",
+  "app.containers.HomeScreen.chooseLanguage": "Choose Language",
+  "app.containers.HomeScreen.detailsButton": "Go to Details!",
+  "app.containers.HomeScreen.header": "This is the HomeScreen container!",
+  "app.containers.HomeScreen.learnMore": "Learn More",
+  "app.containers.HomeScreen.title": "Home",
+  "app.containers.LocaleToggle.en": "en",
+  "app.containers.LocaleToggle.tr": "tr",
+  "app.containers.ReposScreen.search": "Search!",
+  "app.containers.ReposScreen.somethingWentWrong": "Something went wrong, please try again later.",
+  "app.containers.ReposScreen.title": "Repositories"
+}
