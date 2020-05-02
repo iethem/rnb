@@ -17,23 +17,25 @@
 
 ## Features
 
-- Quick scaffolding
-    - Create components, containers, selectors and sagas - and their tests - right from the CLI!
+<dl>
+  <dt>Quick scaffolding</dt>
+  <dd>Create components, containers, routes, selectors and sagas - and their tests - right from the CLI!</dd>
 
-- Instant feedback
-    - Enjoy the best DX (Developer eXperience) and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page. Preserve application state even when you update something in the underlying code!
+  <dt>Instant feedback</dt>
+  <dd>Enjoy the best DX (Developer eXperience) and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page. Preserve application state even when you update something in the underlying code!</dd>
 
-- Predictable state management
-    - Unidirectional data flow allows for change logging and time travel debugging.
+  <dt>Predictable state management</dt>
+  <dd>Unidirectional data flow allows for change logging and time travel debugging.</dd>
 
-- Next generation JavaScript
-    - Use template strings, object destructuring, arrow functions, JSX syntax and more.
+  <dt>Next generation JavaScript</dt>
+  <dd>Use template strings, object destructuring, arrow functions, JSX syntax and more.</dd>
 
-- Industry-standard i18n internationalization support
-    - Scalable apps need to support multiple languages, easily add and support multiple languages with `react-intl`.
+  <dt>Industry-standard i18n internationalization support</dt>
+  <dd>Scalable apps need to support multiple languages, easily add and support multiple languages with `react-intl`.</dd>
 
-- Static code analysis
-    - Focus on writing new features without worrying about formatting or code quality. With the right editor setup, your code will automatically be formatted and linted as you work.
+  <dt>Static code analysis</dt>
+  <dd>Focus on writing new features without worrying about formatting or code quality. With the right editor setup, your code will automatically be formatted and linted as you work.</dd>
+</dl>
 
 But wait... there's more!
 
