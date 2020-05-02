@@ -1,10 +1,8 @@
 <!-- [![react-native-boilerplate](/.gh-assets/header.png)](https://github.com/iethem/react-native-boilerplate) -->
+<div align="center"><strong>Start your next react-native project in seconds</strong></div>
 
+<div align="center">A react-native project template with the best DX and a focus on performance and best practices.</div>
 <p align="center">
-  <b>Start your next react-native project in seconds</b>
-  <p>A react-native project template with the best DX and a focus on performance and best practices.</p>
-  <br />
-
   <p align="center">
     <!-- iOS -->
     <img alt="Supports Expo iOS" longdesc="Supports iOS" src="https://img.shields.io/badge/iOS-000.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
