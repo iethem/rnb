@@ -1,7 +1,7 @@
 <!-- [![react-native-boilerplate](/.gh-assets/header.png)](https://github.com/iethem/react-native-boilerplate) -->
 <div align="center"><strong>Start your next react-native project in seconds</strong></div>
 
-<div align="center">A react-native project template with the best DX and a focus on performance and best practices.</div>
+<div align="center">A react-native project template with the best DX and a focus on performance and best practices. </div>
 <p align="center">
   <p align="center">
     <!-- iOS -->
@@ -12,7 +12,7 @@
 </p>
 
 <div align="center">
-  <sub>Inspired and forked from <a href="https://github.com/react-boilerplate/react-boilerplate">react-boilerpalte</a>.</sub>
+  <sub>Inspired and forked from <a href="https://github.com/react-boilerplate/react-boilerplate">react-boilerplate</a>.</sub>
 </div>
 
 ## Features
