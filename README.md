@@ -54,14 +54,14 @@ There’s also a <a href="https://vimeo.com/168648012">fantastic video</a> on ho
 4.  Run `npm run setup` in order to install dependencies and clean the git repo.<br />
 At this point you can run the following commands to see the example app:
     
-    For `IOS`:
+    For <b>IOS</b>:
     ```sh
     cd ios
     pod install # to install pod dependencies
     cd ..       # to come back to the root folder
     npm run ios # to run the iOS application
     ```   
-    For `Android`:
+    For <b>Android</b>:
     ```sh
     npm run android # to run the Android application
     ```
